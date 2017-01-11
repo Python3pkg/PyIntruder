@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-requirements = []
-
 long_description = ''
 with open('./README.md', 'r') as fp:
     long_description = fp.read()
 
 setup(
     name='PyIntruder',
-    version='0.1.2',
+    version='0.1.3',
     py_modules=[
 	'PyIntruder',
     ],
-    install_requires=requirements,
+    install_requires=['requests>=2.12.4'],
 
     author='sirpsycho',
     author_email='',
@@ -29,5 +27,5 @@ setup(
     long_description=long_description,
     keywords='pyintruder, http, fuzzer, url, scan',
     url='https://github.com/sirpsycho/PyIntruder',
-    scripts=['PyIntruder.py']
+    scripts=['pyintruder']
 )
