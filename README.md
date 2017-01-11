@@ -3,11 +3,11 @@ Simple Command Line URL Fuzzer
 
 
 ```
-./PyIntruder.py -h
-Usage: ./PyIntruder.py [options] <base url> <payload list>
+pyintruder -h
+Usage: pyintruder [options] <base url> <payload list>
 (Use '$' as variable in url that will be swapped out with each payload)
 
-Example:  PyIntruder.py http://www.example.com/file/$.pdf payloads.txt
+Example:  pyintruder http://www.example.com/file/$.pdf payloads.txt
 
 Options:
   -h, --help         show this help message and exit
@@ -31,13 +31,13 @@ When accessing the URL, your browser redirects you to a page which automatically
 This program automates the process of attempting to browse to each of these potentially-interesting URLs by automatically cycling through a list of custom "payloads". A user can create a list of payloads (say, for example, a list of numbers from 1 through 100) and try each payload in a particular position within the URL (use the dollar-sign character to tell the program where to swap out your payloads within the URL).
 
 ```
-./PyIntruder.py http://www.example.com/file/$ payloads.txt
+pyintruder http://www.example.com/file/$ payloads.txt
 ```
 In the above command, where "payloads.txt" is a text file containing a list of numbers 1 - 100 (one number per line), a user can quickly determine which URLs lead somewhere interesting by comparing HTTP status code, Content-Length, or response time:
 
 sample output:
 ```
-root@kali:~# ./PyIntruder.py http://www.example.com/file/$ payloads.txt
+root@kali:~# pyintruder http://www.example.com/file/$ payloads.txt
 Status    Length    Time      Host
 ----------------------------------------
 200       0         110.536   http://www.example.com/file/01
@@ -57,7 +57,7 @@ In this case, it looks like the interesting URLs are the ones that return a 302 
 
 In order to download whatever files might be available at each of these links, you can run a command like this:
 ```
-./PyIntruder.py -rs -o /path/to/save/files http://www.example.com/file/$ payloads-refined.txt
+pyintruder -rs -o /path/to/save/files http://www.example.com/file/$ payloads-refined.txt
 ```
 
 - The "r" option tells the program to follow redirects
@@ -65,6 +65,13 @@ In order to download whatever files might be available at each of these links, y
 - The "o" option tells the program where you want to save the responses on your local machine (this option is optional; by default, if "s" is used without "o", it will save files to the current directory)
 - "payloads-refined.txt" is your refined list of payloads. This can be useful in a case like this if you want to weed out a bunch of URLs that you found out don't go anywhere interesting.
 
+
+#Installation
+PyIntruder is available as an installable python module. Try running:
+```
+pip install pyintruder
+```
+Or you can download and run PyIntruder.py from this repo (swap out `pyintruder` in these examples for `./PyIntruder.py`).
 
 #Dependencies
 If it's not already installed, make sure to [install Requests](http://docs.python-requests.org/en/master/user/install/) (try running "pip install requests").
