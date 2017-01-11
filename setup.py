@@ -19,8 +19,6 @@ setup(
     author_email='',
     classifiers=[
 	'Development Status :: 3 - Alpha',
-	'Intended Audience :: Penetration Testers',
-	'Topic :: Penetration Testing :: Web Applications',
 	'License :: OSI Approved :: MIT License',
 	'Programming Language :: Python',
         'Programming Language :: Python :: 2',
