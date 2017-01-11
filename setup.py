@@ -9,7 +9,7 @@ with open('./README.md', 'r') as fp:
 
 setup(
     name='PyIntruder',
-    version='0.1.1',
+    version='0.1.2',
     py_modules=[
 	'PyIntruder',
     ],
@@ -29,4 +29,5 @@ setup(
     long_description=long_description,
     keywords='pyintruder, http, fuzzer, url, scan',
     url='https://github.com/sirpsycho/PyIntruder',
+    scripts=['PyIntruder.py']
 )
